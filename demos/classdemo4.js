@@ -10,11 +10,27 @@ class Employee {
         this.payRate = payRate;
     }
 
+    getFullName(){
+        return `${this.firstName} ${this.lastName}`
+    }
 
+    getFullNameAlt(){
+        return `${this.lastName}, ${this.firstName}`
+    }
+
+    getIntro(){
+        let intro = `${this.getFullName()} is a ${this.jobTitle} and makes ${this.payRate} per hour.`
+        return intro;
+    }
+
+    displayIntro(){
+        console.log(this.getIntro());
+    }
 
 }
 
 let e1 = new Employee(1, "Matt", "Christenson", "Clown", 9.99);
+e1.firstName = "Matthew";
 
 let e2 = new Employee(2, "Lawrence", "Tejeda", "Jester", 12.00);
 
@@ -22,6 +38,7 @@ let e2 = new Employee(2, "Lawrence", "Tejeda", "Jester", 12.00);
 let employees = [ e1, e2 ];
 
 for(let emp of employees){
-    let intro = `${emp.firstName} ${emp.lastName} is a ${emp.jobTitle} and makes ${emp.payRate} per hour.`
-    console.log(intro);
+    emp.displayIntro();
+
+    console.log(emp.getFullName());
 }
